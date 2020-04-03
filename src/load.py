@@ -12,16 +12,22 @@ def read_data():
     Four pandas dataframes:
         train_X, val_X, train_y, val_y
     '''
-    try:
-        data_folder = Path(os.path.dirname(__file__).replace('src', 'data'))
-    except:
-        data_folder = Path(os.path.abspath('').replace('src', 'data'))
-        
-    train = data_folder / "train.csv"
-    val = data_folder / "dev.csv"
+    train = "train.csv"
+    val = "dev.csv"
     
-    train_df = pd.read_csv(train)
-    val_df = pd.read_csv(val)
+    try:
+        train_df = pd.read_csv(train)
+        val_df = pd.read_csv(val)
+    except:
+        try:
+            data_folder = Path(os.path.dirname(__file__).replace('src', 'data'))
+        except:
+            data_folder = Path(os.path.abspath('').replace('src', 'data'))
+        finally:
+            train = data_folder / "train.csv"
+            val = data_folder / "dev.csv"
+            train_df = pd.read_csv(train)
+            val_df = pd.read_csv(val)
     
     X_col = ['ex_id', 'user_id', 'prod_id', 'rating', 'date', 'review']
     y_col = ['label']
