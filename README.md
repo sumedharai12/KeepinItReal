@@ -1,8 +1,8 @@
 # KeepinItReal
-"Keepin' It Real: How to Identify Fake and Genuine Reviews" /n
+"Keepin' It Real: How to Identify Fake and Genuine Reviews"  
 DSGA-1003 Machine Learning Project
 ## Summary of Plans
-Which project you have chosen
+Which project you have chosen  
 For this project, our group will use the CodaLab Fake Review dataset provided to
 create a classification model for identifying fake reviews.
 ## Proposed Approach
