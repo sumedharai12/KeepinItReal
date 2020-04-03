@@ -1,3 +1,11 @@
 # KeepinItReal
-"Keepin' It Real: How to Identify Fake and Genuine Reviews"
+"Keepin' It Real: How to Identify Fake and Genuine Reviews" /n
 DSGA-1003 Machine Learning Project
+## Summary of Plans
+Which project you have chosen
+For this project, our group will use the CodaLab Fake Review dataset provided to
+create a classification model for identifying fake reviews.
+## Proposed Approach
+We will use the pre-split training & validation sets, and use auROC & AP as the evaluation metrics. One concern with this dataset is the moderate class imbalance (~10% fake reviews). To address this concern we will use resampling via SMOTE (with both over and undersampling) in order to reach a class balance of ~50% before proceeding to feature engineering. We will then train the models using algorithms taught in the course.
+## Suggested Experiments
+We will first perform an EDA to see what criteria to use when classifying the reviews, ranging from sentiment analysis, lexical features such as word n-grams, part-of-speech n-grams, to semantic inconsistencies. This will allow for a common, base level of feature engineering (review length, content similarity, etc.) to be performed before transforming the reviews. The group will then use a divide and conquer approach, with each member selecting a unique featurization method and algorithm to perform the classification task. The biggest distinction between featurization implementations will come from pitting the classical Bag Of Words and CountVectorizers NL approaches against the newer pre-trained BERT and Word2Vec models. Each member will have different decisions to make based on which NL approach they take (such as stop word list selection or reinforcement training) with the end result being four unique NL featurization implementations. Once we have featurized our data, we can move onto model implementation and hyperparameter selection. We will use SVM, Logistic Regression, Neural Network, and Naive Bayes models to create classifiers for the datasets. While all datasets will start with the same search space, it’s likely they will settle on different hyperparameters. Thus each model will be trained and validated against each dataset in a bake-off, providing us with the best performing model to use on the test dataset.
