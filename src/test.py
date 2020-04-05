@@ -3,14 +3,17 @@
 import sys
 import load
 
-def main(debug=False):
+def main(debug=False, balance=False):
     '''loads datasets into dataframes using load.py and prints head(2) for each
     '''
     if debug:
         print("reading data")
-    train_X, val_X, train_y, val_y = load.read_data(debug)
+        
+    train_X, val_X, train_y, val_y = load.read_data(debug, balance)
+    
     if debug:
         print("data read")
+    
     print(f'train_X: cols={train_X.columns.values} shape={train_X.shape}\n')
     print(train_X.head(2))
     print(f'val_X: cols={val_X.columns.values} shape={val_X.shape}\n')
@@ -22,6 +25,11 @@ def main(debug=False):
 
 if __name__ == "__main__":
     debug = False
+    balance = False
     if "debug" in sys.argv:
         debug = True
-    main(debug)
+    
+    if "balance" in sys.argv:
+        balance = True
+        
+    main(debug, balance)
