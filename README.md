@@ -20,3 +20,6 @@ We will first perform an EDA to see what criteria to use when classifying the re
 - [x] 01 Apr: Proposal Due
 - [ ] 05 Apr: Progress Update #1
 - [ ] 19 May: Project Due
+## Project Dependencies
+* python3
+* pandas
