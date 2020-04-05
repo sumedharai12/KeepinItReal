@@ -18,7 +18,8 @@ We will first perform an EDA to see what criteria to use when classifying the re
 ## Timeline
 - [x] 30/31 Mar: Group Meeting; Proposal Draft
 - [x] 01 Apr: Proposal Due
-- [ ] 05 Apr: Progress Update #1
+- [x] 05 Apr: Progress Update #1, EDA
+- [ ] 06 Apr: Progress Update #2, Class Imbalance
 - [ ] 19 May: Project Due
 ## Project Dependencies
 * python3
