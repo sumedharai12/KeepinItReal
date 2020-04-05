@@ -49,6 +49,10 @@ def read_file(file, debug=False):
             # sanitize 
             train_df['date'] = pd.to_datetime(train_df['date'])
             val_df['date'] = pd.to_datetime(val_df['date'])
+            train_df.dropna()
+            train_df.drop_duplicates()
+            val_df.dropna()
+            val_df.drop_duplicates()
     
     if debug:
         print("past try-except")
