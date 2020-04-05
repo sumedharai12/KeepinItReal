@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 import load
 
-def main():
+def main(debug=False):
     '''loads datasets into dataframes using load.py and prints head(2) for each
-
     '''
-    train_X, val_X, train_y, val_y = load.read_data()
+    if debug:
+        print("reading data")
+    train_X, val_X, train_y, val_y = load.read_data(debug)
+    if debug:
+        print("data read")
     print(f'train_X: cols={train_X.columns.values} shape={train_X.shape}\n')
     print(train_X.head(2))
     print(f'val_X: cols={val_X.columns.values} shape={val_X.shape}\n')
@@ -17,4 +20,4 @@ def main():
     print(val_y.head(2))
 
 if __name__ == "__main__":
-    main()
+    main(True)
