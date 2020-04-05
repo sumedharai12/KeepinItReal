@@ -20,11 +20,8 @@ def read_file(file, debug=False):
     -------
     Dataframe with either 'train' or 'val' data loaded.
     '''
-    train = "train.csv"
-    val = "dev.csv"
-    
-    train = "train.csv"
-    val = "dev.csv"
+    train = 'train.csv'
+    val = 'dev.csv'
     
     if debug:
         print("inside read_file")
@@ -44,11 +41,12 @@ def read_file(file, debug=False):
         finally:
             if debug: 
                 print("finally")
-            train = data_folder / "train.csv"
-            val = data_folder / "dev.csv"
+            train = data_folder / train
+            val = data_folder / val
             train_df = pd.read_csv(train)
             val_df = pd.read_csv(val)
             
+            # sanitize 
             train_df['date'] = pd.to_datetime(train_df['date'])
             val_df['date'] = pd.to_datetime(val_df['date'])
     
