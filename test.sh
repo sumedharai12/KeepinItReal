@@ -23,7 +23,7 @@ CODALAB_ARGS="$CODALAB_ARGS --request-time 2d"
 CODALAB_ARGS="$CODALAB_ARGS :src"        # Code
 
 ### Command to execute (these flags can be overridden) from the command-line
-CMD="python src/test.py"
+CMD="python src/test.py debug"
 # Runs can feel free to output to the current directory, which is in the bundle
 #CMD="$CMD --outputdir ."
 

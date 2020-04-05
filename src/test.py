@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import sys
 import load
 
 def main(debug=False):
@@ -20,4 +21,7 @@ def main(debug=False):
     print(val_y.head(2))
 
 if __name__ == "__main__":
-    main(True)
+    debug = False
+    if sys.argv=="debug":
+        debug = True
+    main(debug)
