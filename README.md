@@ -15,3 +15,8 @@ We will first perform an EDA to see what criteria to use when classifying the re
 * [Trello Workflow](https://trello.com/b/62i8ABdb/workflow)
 * [Project Dataset](https://worksheets.codalab.org/worksheets/0x33171fbfe67049fd9b0d61962c1d05ff)
 * [Piazza Project Guideline](https://piazza.com/class/k5cm3iggktn1od?cid=516)
+## Timeline
+- [x] 30/31 Mar: Group Meeting
+- [x] 01 Apr: Proposal Submission
+- [ ] 05 Apr: Progress Update #1
+- [ ] 19 May: Project Due
