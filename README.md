@@ -16,7 +16,7 @@ We will first perform an EDA to see what criteria to use when classifying the re
 * [Project Dataset](https://worksheets.codalab.org/worksheets/0x33171fbfe67049fd9b0d61962c1d05ff)
 * [Piazza Project Guideline](https://piazza.com/class/k5cm3iggktn1od?cid=516)
 ## Timeline
-- [x] 30/31 Mar: Group Meeting
-- [x] 01 Apr: Proposal Submission
+- [x] 30/31 Mar: Group Meeting; Proposal Draft
+- [x] 01 Apr: Proposal Due
 - [ ] 05 Apr: Progress Update #1
 - [ ] 19 May: Project Due
