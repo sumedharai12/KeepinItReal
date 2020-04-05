@@ -48,6 +48,9 @@ def read_file(file, debug=False):
             val = data_folder / "dev.csv"
             train_df = pd.read_csv(train)
             val_df = pd.read_csv(val)
+            
+            train_df['date'] = pd.to_datetime(train_df['date'])
+            val_df['date'] = pd.to_datetime(val_df['date'])
     
     if debug:
         print("past try-except")
