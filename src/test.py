@@ -22,6 +22,6 @@ def main(debug=False):
 
 if __name__ == "__main__":
     debug = False
-    if sys.argv=="debug":
+    if "debug" in sys.argv:
         debug = True
     main(debug)
