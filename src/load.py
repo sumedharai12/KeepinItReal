@@ -3,74 +3,8 @@
 import os.path
 import pandas as pd
 from pathlib import Path
-
-from balance import SMOTE
-
-def read_file(file, debug=False):
-    '''Helper procedure to load one file.
     
-    Parameters
-    ----------
-    file : string
-        'train' | 'val'
-        
-    debug : boolean to set debugging verbosity 
-    
-    Returns
-    -------
-    Dataframe with either 'train' or 'val' data loaded.
-    '''
-    train = 'train.csv'
-    val = 'dev.csv'
-    
-    if debug:
-        print("inside read_file")
-    
-    try:
-        train_df = pd.read_csv(train)
-        val_df = pd.read_csv(val)
-    except:
-        try:
-            if debug:
-                print("try")
-            data_folder = Path(os.path.dirname(__file__).replace('src', 'data'))
-        except:
-            if debug:
-                print("except")
-            data_folder = Path(os.path.abspath('').replace('src', 'data'))
-        finally:
-            if debug: 
-                print("finally")
-            train = data_folder / train
-            val = data_folder / val
-            train_df = pd.read_csv(train)
-            val_df = pd.read_csv(val)
-            
-            # sanitize 
-            train_df['date'] = pd.to_datetime(train_df['date'])
-            val_df['date'] = pd.to_datetime(val_df['date'])
-            train_df.dropna()
-            train_df.drop_duplicates()
-            val_df.dropna()
-            val_df.drop_duplicates()
-    
-    if debug:
-        print("past try-except")
-    
-    if file=='train':
-        loaded_file = train_df
-    elif file=='val':
-        loaded_file = val_df
-    else:
-        loaded_file = None
-        
-    if debug:
-        print(f'loaded: {file}')
-        print("exiting read_file")
-    
-    return loaded_file
-    
-def read_data(debug=False, balance=False):
+def read_data(debug=False):
     '''Helper procedure to load dataset.
     
     Parameters
@@ -87,16 +21,40 @@ def read_data(debug=False, balance=False):
     '''
     if debug:
         print("inside read_data")
+        
+    train = 'train.csv'
+    val = 'dev.csv'
 
-    train_df = read_file('train', debug)
-    val_df = read_file('val', debug)
+    try:
+        if debug: 
+            print("try:reading train.csv")
+        train_df = pd.read_csv(train)
+        if debug: 
+            print("try:reading dev.csv")
+        val_df = pd.read_csv(val)
+    except:
+        try:
+            if debug:
+                print("except-try: path update")
+            data_folder = Path(os.path.dirname(__file__).replace('src', 'data'))
+        except:
+            if debug:
+                print("except-except: path update")
+            data_folder = Path(os.path.abspath('').replace('src', 'data'))
+        finally:
+            train = data_folder / train
+            val = data_folder / val
+            if debug: 
+                print("except-finally: reading train.csv")
+            train_df = pd.read_csv(train)
+            train_df['date'] = pd.to_datetime(train_df['date'])
+            if debug: 
+                print("except-finally: reading dev.csv")
+            val_df = pd.read_csv(val)
+            val_df['date'] = pd.to_datetime(val_df['date'])
     
     if debug:
-        print("data loaded")
-        
-    if balance:
-        train_df = SMOTE(df=train_df, debug=debug)
-        val_df = SMOTE(df=val_df, debug=debug)
+        print("data loaded - filtering DFs")
     
     X_col = ['ex_id', 'user_id', 'prod_id', 'rating', 'date', 'review']
     y_col = ['label']
